@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        //Implementing the setInterval method
+        const interval = setInterval(() => {
+          fetch('https://maxpi.webcindario.com/cron.php')
+            setCount(count + 1);
+        }, 1000);
+
+        //Clearing the interval
+        return () => clearInterval(interval);
+    }, [count]);
   return (
     <div className="App">
       <header className="App-header">
@@ -19,11 +31,7 @@ function App() {
           Learn React
         </a>
       </header>
-      <script>
-        setInterval(() => {
-          fetch('https://maxpi.webcindario.com/cron.php')
-        }, 10000);
-      </script>
+      <h1>{count}</h1>
     </div>
   );
 }
