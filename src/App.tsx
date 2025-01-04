@@ -19,6 +19,11 @@ function App() {
           Learn React
         </a>
       </header>
+      <script>
+        setInterval(() => {
+          fetch('https://maxpi.webcindario.com/cron.php')
+        }, 10000);
+      </script>
     </div>
   );
 }
