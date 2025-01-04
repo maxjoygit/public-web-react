@@ -10,7 +10,7 @@ function App() {
         const interval = setInterval(() => {
           fetch('https://maxpi.webcindario.com/cron.php')
             setCount(count + 1);
-        }, 1000);
+        }, 60000);
 
         //Clearing the interval
         return () => clearInterval(interval);
